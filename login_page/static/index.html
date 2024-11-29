@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login or Signup</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 id="form-title">Welcome Back</h1>
+        <form id="login-signup-form">
+            <!-- Username -->
+            <input type="text" id="username" placeholder="Username" required>
+            
+            <!-- Email (Signup only, hidden by default) -->
+            <input type="email" id="email" placeholder="Email" class="hidden">
+            
+            <!-- Password -->
+            <input type="password" id="password" placeholder="Password" required>
+            
+            <!-- Confirm Password (Signup only, hidden by default) -->
+            <input type="password" id="confirm-password" placeholder="Confirm Password" class="hidden">
+            
+            <!-- Submit Button -->
+            <button type="submit" id="form-submit">Login</button>
+        </form>
+
+        <!-- Toggle Message -->
+        <p id="toggle-message">
+            Don't have an account? 
+            <button id="toggle-button" >Sign up</button>
+        </p>
+
+        <!-- Response Message -->
+        <p id="response-message"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

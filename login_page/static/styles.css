@@ -1,0 +1,118 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&display=swap');
+
+/* Base styles */
+body {
+    font-family: 'Pacifico', cursive;
+    background: rgba(34, 34, 59, 0.8); /* Deep blue with slight transparency */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Stylish container box */
+.container {
+    background: rgba(34, 34, 59, 0.85); /* Deep blue semi-transparent */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #FFD700;
+    background: linear-gradient(45deg, #ff7eb3, #ff758c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Great Vibes', cursive;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    text-transform: capitalize;
+}
+
+/* Form container */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input field styling */
+input {
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    border: none;
+    background: #F4F4F8;
+    color: #22223B;
+    font-family: 'Pacifico', cursive;
+    transition: background-color 0.3s;
+}
+
+input:focus {
+    background-color: #FF7EB3;
+    color: white;
+}
+
+/* Button styling */
+button {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    border: none;
+    font-family: 'Pacifico', cursive;
+    background-color: #FF7EB3;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+}
+
+button:hover {
+    background-color: #FF758C;
+    transform: scale(1.05);
+}
+
+/* Hidden fields */
+.hidden {
+    display: none;
+}
+
+/* Toggle button styling */
+#toggle-message {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    color: #FFD700;
+    font-family: 'Pacifico', cursive;
+}
+
+#toggle-button {
+    cursor: pointer;
+    text-decoration: underline;
+    color: white;
+}
+
+#toggle-button:hover {
+    color: white;
+}
+
+/* Response message styles */
+#response-message {
+    font-size: 1rem;
+    margin-top: 15px;
+    color: red;
+}
+

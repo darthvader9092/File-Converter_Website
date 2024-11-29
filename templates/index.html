@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One File Converter</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <!-- Anya Image and Dialogue -->
+    <div class="anya-container">
+        <img src="/static/images/anya3.png" alt="Anya" class="anya-image">
+        <div class="anya-dialogue">
+            <p id="anya-text">Onii-Chan, Do you need help convert files?</p>
+        </div>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <h1>Reshape your Files</h1>
+        <form action="/convert" method="POST" enctype="multipart/form-data">
+            <label for="file">Choose your file:</label>
+            <input type="file" id="file" name="file" required>
+
+            <label for="category">Select file type:</label>
+            <select id="category" name="category" required>
+                <option value="">-- Select Category --</option>
+                <option value="audio">Audio</option>
+                <option value="image">Image</option>
+                <option value="document">Document</option>
+            </select>
+
+            <label for="format">Choose target format:</label>
+            <select id="format" name="format" required>
+                <option value="">-- Select Format --</option>
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+    </div>
+
+    <!-- Ask Anya Section -->
+    <div class="ask-anya-container">
+        <h2>Ask Anya a Question!</h2>
+        <input type="text" id="anya-question" placeholder="Type your question here..." aria-label="Type your question for Anya" />
+        <button id="ask-anya-btn">Ask Anya</button>
+        <div id="anya-response" role="alert" aria-live="polite">
+            <!-- Dynamic responses will appear here -->
+        </div>
+
+        <!-- Search Results Box -->
+        <div id="search-results" role="region" aria-live="polite">
+            <!-- Top 3 search results will appear here -->
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
+

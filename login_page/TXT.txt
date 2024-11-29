@@ -1,0 +1,62 @@
+from flask import Flask, request, jsonify
+import os
+
+app = Flask(__name__)
+CREDENTIALS_FILE = "credentials.txt"
+
+
+# Helper: Load credentials from file
+def load_credentials():
+    if not os.path.exists(CREDENTIALS_FILE):
+        return {}
+    with open(CREDENTIALS_FILE, "r") as file:
+        lines = file.readlines()
+        credentials = {}
+        for line in lines:
+            username, email, password = line.strip().split(",")
+            credentials[username] = {"email": email, "password": password}
+        return credentials
+
+
+# Helper: Save new credentials to file
+def save_credentials(username, email, password):
+    with open(CREDENTIALS_FILE, "a") as file:
+        file.write(f"{username},{email},{password}\n")
+
+
+# Signup endpoint
+@app.route("/signup", methods=["POST"])
+def signup():
+    data = request.json
+    username = data.get("username")
+    email = data.get("email")
+    password = data.get("password")
+
+    credentials = load_credentials()
+    if username in credentials:
+        return jsonify({"success": False, "message": "Username already exists!"})
+
+    save_credentials(username, email, password)
+    return jsonify({"success": True, "message": "Account created successfully!"})
+
+
+# Login endpoint
+@app.route("/login", methods=["POST"])
+def login():
+    data = request.json
+    username = data.get("username")
+    password = data.get("password")
+
+    credentials = load_credentials()
+    if username not in credentials:
+        return jsonify({"success": False, "message": "Username does not exist!"})
+
+    if credentials[username]["password"] != password:
+        return jsonify({"success": False, "message": "Incorrect password!"})
+
+    return jsonify({"success": True, "message": "Logged in successfully!"})
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
